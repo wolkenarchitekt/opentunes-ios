@@ -3,8 +3,9 @@
     <entity name="Track" representedClassName="Track" syncable="YES" codeGenerationType="class">
         <attribute name="artist" optional="YES" attributeType="String"/>
         <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="url" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Track" positionX="-63" positionY="-18" width="128" height="73"/>
+        <element name="Track" positionX="-63" positionY="-18" width="128" height="88"/>
     </elements>
 </model>
