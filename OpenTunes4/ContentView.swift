@@ -1,13 +1,37 @@
 import SwiftUI
 import CoreData
 import AVFoundation
+import Combine
+import MediaPlayer
+
+func getArtwork(asset: AVAsset) -> UIImage {
+    let items = AVMetadataItem.metadataItems(from: asset.metadata, filteredByIdentifier: AVMetadataIdentifier.commonIdentifierArtwork)
+    let data = items.first?.dataValue
+    if data != nil {
+        return UIImage(data: data!)!
+    }
+    return UIImage()
+}
 
 struct TrackDetailView: View {
     var track: Track
+    var artwork: UIImage
+    var asset: AVAsset
+    
+    init(track: Track) {
+        self.track = track
+        let url = URL(string: track.url!)!
+        self.asset = AVAsset(url: url)
+        self.artwork = getArtwork(asset: asset)
+    }
     
     var body: some View {
-        Text("Artist: \(track.artist!)")
-        Text("Title: \(track.title!)")
+        HStack() {
+            Image(uiImage: self.artwork).resizable().frame(width: 50, height: 50)
+            Text("Artist: \(track.artist!)")
+            Text("Title: \(track.title!)")
+            Text("Key: \(track.initialKey!)")
+        }
     }
 }
 
@@ -36,12 +60,18 @@ class ObservableViewModel<T>: ObservableObject {
     }
 }
 
+struct Platform {
+
+    static var isSimulator: Bool {
+        return TARGET_OS_SIMULATOR != 0
+    }
+}
+
 extension ContentView {
     class ViewModel: ObservableViewModel<Track> {
-        var context: NSManagedObjectContext?
+        private var context: NSManagedObjectContext?
         
         init() {
-            self.context = nil
             super.init(dataSource: [Track]())
         }
         
@@ -55,30 +85,67 @@ extension ContentView {
             try! context.save()
         }
         
-        func loadTracks(context: NSManagedObjectContext) {
-            self.context = context
+        func loadTrackFromFile(url: URL, context: NSManagedObjectContext) -> Track {
+            let track = Track(context: context)
+            let asset = AVAsset(url: url)
+            let artist = getTagFilterByIdentifier(asset: asset, identifier: AVMetadataIdentifier.commonIdentifierArtist)
+            let title = getTagFilterByIdentifier(asset: asset, identifier: AVMetadataIdentifier.commonIdentifierTitle)
+            let initialKey = getTagFilterByIdentifier(asset: asset, identifier: AVMetadataIdentifier.id3MetadataInitialKey)
+            let bpm = getTagFilterByIdentifier(asset: asset, identifier: AVMetadataIdentifier.id3MetadataBeatsPerMinute)
+            track.artist = artist
+            track.title = title
+            track.url = url.absoluteString
+            track.initialKey = initialKey
+            if bpm != "" {
+                track.bpm = Double(bpm!)!
+            }
+            return track
+        }
+        
+        func loadTracksFromLibrary(context: NSManagedObjectContext) {
+            let mediaItems: [MPMediaItem] = MPMediaQuery.songs().items!
+            let start = DispatchTime.now()
             
-            deleteAllTracks(context: context)
-            
-            let urls = Bundle.main.urls(forResourcesWithExtension: "mp3", subdirectory: nil)!
-            print("got tracks: \(urls.count)")
-            
-            for url in urls {
-                let asset = AVAsset(url: url)
-                let artist = getTagFilterByIdentifier(asset: asset, identifier: AVMetadataIdentifier.commonIdentifierArtist)
-                let title = getTagFilterByIdentifier(asset: asset, identifier: AVMetadataIdentifier.commonIdentifierTitle)
-                let url = url.relativeString
-                
-                let track = Track(context: context)
-                track.artist = artist
-                track.title = title
-                track.url = url
+            for item in mediaItems {
+                let track: Track = Track(context: context)
+                track.url = item.assetURL!.absoluteString
+                track.artist = item.artist
+                track.title = item.title
                 try! context.save()
             }
             
+            let end = DispatchTime.now()
+            let nanoTime = end.uptimeNanoseconds - start.uptimeNanoseconds
+            let timeInterval = Double(nanoTime) / 1_000_000_000
+            print("Reading tracks took \(timeInterval) seconds")
+        }
+        
+        func loadTracksDB(context: NSManagedObjectContext) {
             let fetchRequest = Track.fetchRequest() as NSFetchRequest<Track>
             let coreDataTracks = try! context.fetch(fetchRequest) as [Track]
-            dataSource = coreDataTracks
+            self.dataSource = coreDataTracks
+        }
+        
+        func loadTracks(context: NSManagedObjectContext) {
+            deleteAllTracks(context: context)
+            
+            let urls = Bundle.main.urls(forResourcesWithExtension: "mp3", subdirectory: nil)!
+            if Platform.isSimulator {
+                for url in urls {
+                    let _ = loadTrackFromFile(url: url, context: context)
+                    try! context.save()
+                }
+                self.loadTracksDB(context: context)
+            } else {
+                MPMediaLibrary.requestAuthorization { status in
+                    if status == .authorized {
+                        DispatchQueue.main.async {
+                            self.loadTracksFromLibrary(context: context)
+                            self.loadTracksDB(context: context)
+                        }
+                    }
+                }
+            }
         }
     }
 }
@@ -88,9 +155,8 @@ func getTagFilterByIdentifier(asset: AVAsset, identifier: AVMetadataIdentifier) 
     
     if items.count > 0 {
         return items.first!.stringValue
-    } else {
-        return ""
     }
+    return ""
 }
 
 struct ContentView_Previews: PreviewProvider {
