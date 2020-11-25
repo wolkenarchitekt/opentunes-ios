@@ -7,46 +7,67 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		262CC2AD256ECF3D002B02B7 /* fsm-team-sunny-morning.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 262CC293256ECF30002B02B7 /* fsm-team-sunny-morning.mp3 */; };
+		262CC2AE256ECF3D002B02B7 /* fsm-team-upbeat.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 262CC294256ECF31002B02B7 /* fsm-team-upbeat.mp3 */; };
+		262CC2AF256ECF3D002B02B7 /* fsm-team-synthetic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 262CC295256ECF31002B02B7 /* fsm-team-synthetic.mp3 */; };
+		262CC2B0256ECF3D002B02B7 /* fsm-team-sun-and-clouds.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 262CC296256ECF32002B02B7 /* fsm-team-sun-and-clouds.mp3 */; };
+		262CC2B1256ECF3D002B02B7 /* fsm-team-uplifting.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 262CC297256ECF32002B02B7 /* fsm-team-uplifting.mp3 */; };
+		262CC2B2256ECF3D002B02B7 /* fsm-team-escp-lucid-dreaming.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 262CC298256ECF33002B02B7 /* fsm-team-escp-lucid-dreaming.mp3 */; };
+		262CC2B3256ECF3D002B02B7 /* fsm-team-single-room-airfield-view.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 262CC299256ECF33002B02B7 /* fsm-team-single-room-airfield-view.mp3 */; };
+		262CC2B4256ECF3D002B02B7 /* fsm-team-nightwalker.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 262CC29A256ECF34002B02B7 /* fsm-team-nightwalker.mp3 */; };
+		262CC2B5256ECF3D002B02B7 /* fsm-team-escp-sail-away.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 262CC29B256ECF34002B02B7 /* fsm-team-escp-sail-away.mp3 */; };
+		262CC2B6256ECF3D002B02B7 /* fsm-team-escp-neo-noir.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 262CC29C256ECF35002B02B7 /* fsm-team-escp-neo-noir.mp3 */; };
+		262CC2B7256ECF3D002B02B7 /* fsm-team-escp-through-the-waves.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 262CC29D256ECF35002B02B7 /* fsm-team-escp-through-the-waves.mp3 */; };
+		262CC2B8256ECF3D002B02B7 /* fsm-team-escp-hello-night.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 262CC29E256ECF35002B02B7 /* fsm-team-escp-hello-night.mp3 */; };
+		262CC2B9256ECF3D002B02B7 /* fsm-team-escp-water-skiing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 262CC29F256ECF36002B02B7 /* fsm-team-escp-water-skiing.mp3 */; };
+		262CC2BA256ECF3D002B02B7 /* fsm-team-over-the-ocean.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 262CC2A0256ECF36002B02B7 /* fsm-team-over-the-ocean.mp3 */; };
+		262CC2BB256ECF3D002B02B7 /* fsm-team-escp-parallel-synthesis.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 262CC2A1256ECF37002B02B7 /* fsm-team-escp-parallel-synthesis.mp3 */; };
+		262CC2BC256ECF3D002B02B7 /* fsm-team-escp-lost-in-sargam.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 262CC2A2256ECF37002B02B7 /* fsm-team-escp-lost-in-sargam.mp3 */; };
+		262CC2BD256ECF3D002B02B7 /* fsm-team-stay-positive.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 262CC2A3256ECF38002B02B7 /* fsm-team-stay-positive.mp3 */; };
+		262CC2BE256ECF3D002B02B7 /* fsm-team-escp-goodbye-ocean.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 262CC2A4256ECF38002B02B7 /* fsm-team-escp-goodbye-ocean.mp3 */; };
+		262CC2BF256ECF3D002B02B7 /* fsm-team-escp-dreamwalking.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 262CC2A5256ECF39002B02B7 /* fsm-team-escp-dreamwalking.mp3 */; };
+		262CC2C0256ECF3D002B02B7 /* fsm-team-the-city.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 262CC2A6256ECF39002B02B7 /* fsm-team-the-city.mp3 */; };
+		262CC2C1256ECF3D002B02B7 /* fsm-team-open-space.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 262CC2A7256ECF3A002B02B7 /* fsm-team-open-space.mp3 */; };
+		262CC2C2256ECF3D002B02B7 /* fsm-team-escp-infinite.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 262CC2A8256ECF3A002B02B7 /* fsm-team-escp-infinite.mp3 */; };
+		262CC2C3256ECF3D002B02B7 /* fsm-team-escp-lazy-aftermoon.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 262CC2A9256ECF3B002B02B7 /* fsm-team-escp-lazy-aftermoon.mp3 */; };
+		262CC2C4256ECF3D002B02B7 /* fsm-team-escp-astronaut-in-a-submarine.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 262CC2AA256ECF3B002B02B7 /* fsm-team-escp-astronaut-in-a-submarine.mp3 */; };
+		262CC2C5256ECF3D002B02B7 /* fsm-team-time-rider.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 262CC2AB256ECF3C002B02B7 /* fsm-team-time-rider.mp3 */; };
+		262CC2C6256ECF3D002B02B7 /* fsm-team-escp-work-sleep-repeat.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 262CC2AC256ECF3C002B02B7 /* fsm-team-escp-work-sleep-repeat.mp3 */; };
 		2698DEAD256C61B700C5AF76 /* OpenTunes4App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2698DEAC256C61B700C5AF76 /* OpenTunes4App.swift */; };
 		2698DEAF256C61B700C5AF76 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2698DEAE256C61B700C5AF76 /* ContentView.swift */; };
 		2698DEB1256C61BA00C5AF76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2698DEB0256C61BA00C5AF76 /* Assets.xcassets */; };
 		2698DEB4256C61BA00C5AF76 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2698DEB3256C61BA00C5AF76 /* Preview Assets.xcassets */; };
 		2698DEB6256C61BA00C5AF76 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2698DEB5256C61BA00C5AF76 /* Persistence.swift */; };
 		2698DEB9256C61BA00C5AF76 /* OpenTunes4.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2698DEB7256C61BA00C5AF76 /* OpenTunes4.xcdatamodeld */; };
-		26DCCD2B256DAC3B00865512 /* fsm-team-open-space.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 26DCCD0C256DAC3600865512 /* fsm-team-open-space.mp3 */; };
-		26DCCD2C256DAC3B00865512 /* fsm-team-above-the-clouds.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 26DCCD0D256DAC3600865512 /* fsm-team-above-the-clouds.mp3 */; };
-		26DCCD2D256DAC3B00865512 /* fsm-team-escp-dreamwalking.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 26DCCD0E256DAC3600865512 /* fsm-team-escp-dreamwalking.mp3 */; };
-		26DCCD2E256DAC3B00865512 /* fsm-team-time-rider.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 26DCCD0F256DAC3700865512 /* fsm-team-time-rider.mp3 */; };
-		26DCCD2F256DAC3B00865512 /* fsm-team-escp-work-sleep-repeat.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 26DCCD10256DAC3700865512 /* fsm-team-escp-work-sleep-repeat.mp3 */; };
-		26DCCD30256DAC3B00865512 /* fsm-team-synthetic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 26DCCD11256DAC3700865512 /* fsm-team-synthetic.mp3 */; };
-		26DCCD31256DAC3B00865512 /* fsm-team-escp-hello-night.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 26DCCD12256DAC3700865512 /* fsm-team-escp-hello-night.mp3 */; };
-		26DCCD32256DAC3B00865512 /* fsm-team-over-the-ocean.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 26DCCD13256DAC3700865512 /* fsm-team-over-the-ocean.mp3 */; };
-		26DCCD33256DAC3B00865512 /* fsm-team-escp-lost-in-sargam.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 26DCCD14256DAC3700865512 /* fsm-team-escp-lost-in-sargam.mp3 */; };
-		26DCCD34256DAC3B00865512 /* fsm-team-sunny-morning.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 26DCCD15256DAC3800865512 /* fsm-team-sunny-morning.mp3 */; };
-		26DCCD35256DAC3B00865512 /* fsm-team-escp-sail-away.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 26DCCD16256DAC3800865512 /* fsm-team-escp-sail-away.mp3 */; };
-		26DCCD36256DAC3B00865512 /* fsm-team-sun-and-clouds.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 26DCCD17256DAC3800865512 /* fsm-team-sun-and-clouds.mp3 */; };
-		26DCCD37256DAC3B00865512 /* fsm-team-escp-infinite.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 26DCCD18256DAC3800865512 /* fsm-team-escp-infinite.mp3 */; };
-		26DCCD38256DAC3B00865512 /* fsm-team-upbeat.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 26DCCD19256DAC3800865512 /* fsm-team-upbeat.mp3 */; };
-		26DCCD39256DAC3B00865512 /* fsm-team-banger.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 26DCCD1A256DAC3900865512 /* fsm-team-banger.mp3 */; };
-		26DCCD3A256DAC3B00865512 /* fsm-team-uplifting.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 26DCCD1B256DAC3900865512 /* fsm-team-uplifting.mp3 */; };
-		26DCCD3B256DAC3B00865512 /* fsm-team-single-room-airfield-view.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 26DCCD1C256DAC3900865512 /* fsm-team-single-room-airfield-view.mp3 */; };
-		26DCCD3C256DAC3B00865512 /* fsm-team-escp-neo-noir.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26DCCD1D256DAC3900865512 /* fsm-team-escp-neo-noir.jpg */; };
-		26DCCD3D256DAC3B00865512 /* fsm-team-escp-parallel-synthesis.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 26DCCD1E256DAC3900865512 /* fsm-team-escp-parallel-synthesis.mp3 */; };
-		26DCCD3E256DAC3B00865512 /* fsm-team-escp-water-skiing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 26DCCD1F256DAC3900865512 /* fsm-team-escp-water-skiing.mp3 */; };
-		26DCCD3F256DAC3B00865512 /* fsm-team-escp-through-the-waves.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 26DCCD20256DAC3900865512 /* fsm-team-escp-through-the-waves.mp3 */; };
-		26DCCD40256DAC3B00865512 /* fsm-team-escp-goodbye-ocean.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 26DCCD21256DAC3A00865512 /* fsm-team-escp-goodbye-ocean.mp3 */; };
-		26DCCD41256DAC3B00865512 /* fsm-team-escp-lazy-aftermoon.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 26DCCD22256DAC3A00865512 /* fsm-team-escp-lazy-aftermoon.mp3 */; };
-		26DCCD42256DAC3B00865512 /* fsm-team-escp-astronaut-in-a-submarine.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 26DCCD23256DAC3A00865512 /* fsm-team-escp-astronaut-in-a-submarine.mp3 */; };
-		26DCCD43256DAC3B00865512 /* fsm-team-escp-neo-noir.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 26DCCD24256DAC3A00865512 /* fsm-team-escp-neo-noir.mp3 */; };
-		26DCCD44256DAC3B00865512 /* fsm-team-back-home.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 26DCCD25256DAC3A00865512 /* fsm-team-back-home.mp3 */; };
-		26DCCD45256DAC3B00865512 /* fsm-team-escp-lucid-dreaming.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 26DCCD26256DAC3A00865512 /* fsm-team-escp-lucid-dreaming.mp3 */; };
-		26DCCD46256DAC3B00865512 /* fsm-team-stay-positive.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 26DCCD27256DAC3A00865512 /* fsm-team-stay-positive.mp3 */; };
-		26DCCD47256DAC3B00865512 /* fsm-team-nightwalker.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 26DCCD28256DAC3B00865512 /* fsm-team-nightwalker.mp3 */; };
-		26DCCD48256DAC3B00865512 /* fsm-team-escp-ambivert.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 26DCCD29256DAC3B00865512 /* fsm-team-escp-ambivert.mp3 */; };
-		26DCCD49256DAC3B00865512 /* fsm-team-the-city.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 26DCCD2A256DAC3B00865512 /* fsm-team-the-city.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		262CC293256ECF30002B02B7 /* fsm-team-sunny-morning.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-sunny-morning.mp3"; sourceTree = "<group>"; };
+		262CC294256ECF31002B02B7 /* fsm-team-upbeat.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-upbeat.mp3"; sourceTree = "<group>"; };
+		262CC295256ECF31002B02B7 /* fsm-team-synthetic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-synthetic.mp3"; sourceTree = "<group>"; };
+		262CC296256ECF32002B02B7 /* fsm-team-sun-and-clouds.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-sun-and-clouds.mp3"; sourceTree = "<group>"; };
+		262CC297256ECF32002B02B7 /* fsm-team-uplifting.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-uplifting.mp3"; sourceTree = "<group>"; };
+		262CC298256ECF33002B02B7 /* fsm-team-escp-lucid-dreaming.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-escp-lucid-dreaming.mp3"; sourceTree = "<group>"; };
+		262CC299256ECF33002B02B7 /* fsm-team-single-room-airfield-view.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-single-room-airfield-view.mp3"; sourceTree = "<group>"; };
+		262CC29A256ECF34002B02B7 /* fsm-team-nightwalker.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-nightwalker.mp3"; sourceTree = "<group>"; };
+		262CC29B256ECF34002B02B7 /* fsm-team-escp-sail-away.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-escp-sail-away.mp3"; sourceTree = "<group>"; };
+		262CC29C256ECF35002B02B7 /* fsm-team-escp-neo-noir.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-escp-neo-noir.mp3"; sourceTree = "<group>"; };
+		262CC29D256ECF35002B02B7 /* fsm-team-escp-through-the-waves.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-escp-through-the-waves.mp3"; sourceTree = "<group>"; };
+		262CC29E256ECF35002B02B7 /* fsm-team-escp-hello-night.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-escp-hello-night.mp3"; sourceTree = "<group>"; };
+		262CC29F256ECF36002B02B7 /* fsm-team-escp-water-skiing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-escp-water-skiing.mp3"; sourceTree = "<group>"; };
+		262CC2A0256ECF36002B02B7 /* fsm-team-over-the-ocean.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-over-the-ocean.mp3"; sourceTree = "<group>"; };
+		262CC2A1256ECF37002B02B7 /* fsm-team-escp-parallel-synthesis.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-escp-parallel-synthesis.mp3"; sourceTree = "<group>"; };
+		262CC2A2256ECF37002B02B7 /* fsm-team-escp-lost-in-sargam.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-escp-lost-in-sargam.mp3"; sourceTree = "<group>"; };
+		262CC2A3256ECF38002B02B7 /* fsm-team-stay-positive.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-stay-positive.mp3"; sourceTree = "<group>"; };
+		262CC2A4256ECF38002B02B7 /* fsm-team-escp-goodbye-ocean.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-escp-goodbye-ocean.mp3"; sourceTree = "<group>"; };
+		262CC2A5256ECF39002B02B7 /* fsm-team-escp-dreamwalking.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-escp-dreamwalking.mp3"; sourceTree = "<group>"; };
+		262CC2A6256ECF39002B02B7 /* fsm-team-the-city.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-the-city.mp3"; sourceTree = "<group>"; };
+		262CC2A7256ECF3A002B02B7 /* fsm-team-open-space.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-open-space.mp3"; sourceTree = "<group>"; };
+		262CC2A8256ECF3A002B02B7 /* fsm-team-escp-infinite.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-escp-infinite.mp3"; sourceTree = "<group>"; };
+		262CC2A9256ECF3B002B02B7 /* fsm-team-escp-lazy-aftermoon.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-escp-lazy-aftermoon.mp3"; sourceTree = "<group>"; };
+		262CC2AA256ECF3B002B02B7 /* fsm-team-escp-astronaut-in-a-submarine.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "fsm-team-escp-astronaut-in-a-submarine.mp3"; path = "../../../../../Music/Stockmusic/short/fsm-team-escp-astronaut-in-a-submarine.mp3"; sourceTree = "<group>"; };
+		262CC2AB256ECF3C002B02B7 /* fsm-team-time-rider.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-time-rider.mp3"; sourceTree = "<group>"; };
+		262CC2AC256ECF3C002B02B7 /* fsm-team-escp-work-sleep-repeat.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-escp-work-sleep-repeat.mp3"; sourceTree = "<group>"; };
 		2698DEA9256C61B700C5AF76 /* OpenTunes4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenTunes4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2698DEAC256C61B700C5AF76 /* OpenTunes4App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenTunes4App.swift; sourceTree = "<group>"; };
 		2698DEAE256C61B700C5AF76 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,37 +76,6 @@
 		2698DEB5256C61BA00C5AF76 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		2698DEB8256C61BA00C5AF76 /* OpenTunes4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OpenTunes4.xcdatamodel; sourceTree = "<group>"; };
 		2698DEBA256C61BA00C5AF76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		26DCCD0C256DAC3600865512 /* fsm-team-open-space.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-open-space.mp3"; sourceTree = "<group>"; };
-		26DCCD0D256DAC3600865512 /* fsm-team-above-the-clouds.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-above-the-clouds.mp3"; sourceTree = "<group>"; };
-		26DCCD0E256DAC3600865512 /* fsm-team-escp-dreamwalking.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-escp-dreamwalking.mp3"; sourceTree = "<group>"; };
-		26DCCD0F256DAC3700865512 /* fsm-team-time-rider.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-time-rider.mp3"; sourceTree = "<group>"; };
-		26DCCD10256DAC3700865512 /* fsm-team-escp-work-sleep-repeat.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-escp-work-sleep-repeat.mp3"; sourceTree = "<group>"; };
-		26DCCD11256DAC3700865512 /* fsm-team-synthetic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-synthetic.mp3"; sourceTree = "<group>"; };
-		26DCCD12256DAC3700865512 /* fsm-team-escp-hello-night.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-escp-hello-night.mp3"; sourceTree = "<group>"; };
-		26DCCD13256DAC3700865512 /* fsm-team-over-the-ocean.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-over-the-ocean.mp3"; sourceTree = "<group>"; };
-		26DCCD14256DAC3700865512 /* fsm-team-escp-lost-in-sargam.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-escp-lost-in-sargam.mp3"; sourceTree = "<group>"; };
-		26DCCD15256DAC3800865512 /* fsm-team-sunny-morning.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-sunny-morning.mp3"; sourceTree = "<group>"; };
-		26DCCD16256DAC3800865512 /* fsm-team-escp-sail-away.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-escp-sail-away.mp3"; sourceTree = "<group>"; };
-		26DCCD17256DAC3800865512 /* fsm-team-sun-and-clouds.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-sun-and-clouds.mp3"; sourceTree = "<group>"; };
-		26DCCD18256DAC3800865512 /* fsm-team-escp-infinite.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-escp-infinite.mp3"; sourceTree = "<group>"; };
-		26DCCD19256DAC3800865512 /* fsm-team-upbeat.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-upbeat.mp3"; sourceTree = "<group>"; };
-		26DCCD1A256DAC3900865512 /* fsm-team-banger.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-banger.mp3"; sourceTree = "<group>"; };
-		26DCCD1B256DAC3900865512 /* fsm-team-uplifting.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-uplifting.mp3"; sourceTree = "<group>"; };
-		26DCCD1C256DAC3900865512 /* fsm-team-single-room-airfield-view.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-single-room-airfield-view.mp3"; sourceTree = "<group>"; };
-		26DCCD1D256DAC3900865512 /* fsm-team-escp-neo-noir.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "fsm-team-escp-neo-noir.jpg"; sourceTree = "<group>"; };
-		26DCCD1E256DAC3900865512 /* fsm-team-escp-parallel-synthesis.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-escp-parallel-synthesis.mp3"; sourceTree = "<group>"; };
-		26DCCD1F256DAC3900865512 /* fsm-team-escp-water-skiing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-escp-water-skiing.mp3"; sourceTree = "<group>"; };
-		26DCCD20256DAC3900865512 /* fsm-team-escp-through-the-waves.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-escp-through-the-waves.mp3"; sourceTree = "<group>"; };
-		26DCCD21256DAC3A00865512 /* fsm-team-escp-goodbye-ocean.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-escp-goodbye-ocean.mp3"; sourceTree = "<group>"; };
-		26DCCD22256DAC3A00865512 /* fsm-team-escp-lazy-aftermoon.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-escp-lazy-aftermoon.mp3"; sourceTree = "<group>"; };
-		26DCCD23256DAC3A00865512 /* fsm-team-escp-astronaut-in-a-submarine.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-escp-astronaut-in-a-submarine.mp3"; sourceTree = "<group>"; };
-		26DCCD24256DAC3A00865512 /* fsm-team-escp-neo-noir.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-escp-neo-noir.mp3"; sourceTree = "<group>"; };
-		26DCCD25256DAC3A00865512 /* fsm-team-back-home.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-back-home.mp3"; sourceTree = "<group>"; };
-		26DCCD26256DAC3A00865512 /* fsm-team-escp-lucid-dreaming.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-escp-lucid-dreaming.mp3"; sourceTree = "<group>"; };
-		26DCCD27256DAC3A00865512 /* fsm-team-stay-positive.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-stay-positive.mp3"; sourceTree = "<group>"; };
-		26DCCD28256DAC3B00865512 /* fsm-team-nightwalker.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-nightwalker.mp3"; sourceTree = "<group>"; };
-		26DCCD29256DAC3B00865512 /* fsm-team-escp-ambivert.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-escp-ambivert.mp3"; sourceTree = "<group>"; };
-		26DCCD2A256DAC3B00865512 /* fsm-team-the-city.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-the-city.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,37 +131,32 @@
 		26DCCD0A256DA68200865512 /* Music.bundle */ = {
 			isa = PBXGroup;
 			children = (
-				26DCCD0D256DAC3600865512 /* fsm-team-above-the-clouds.mp3 */,
-				26DCCD25256DAC3A00865512 /* fsm-team-back-home.mp3 */,
-				26DCCD1A256DAC3900865512 /* fsm-team-banger.mp3 */,
-				26DCCD29256DAC3B00865512 /* fsm-team-escp-ambivert.mp3 */,
-				26DCCD23256DAC3A00865512 /* fsm-team-escp-astronaut-in-a-submarine.mp3 */,
-				26DCCD0E256DAC3600865512 /* fsm-team-escp-dreamwalking.mp3 */,
-				26DCCD21256DAC3A00865512 /* fsm-team-escp-goodbye-ocean.mp3 */,
-				26DCCD12256DAC3700865512 /* fsm-team-escp-hello-night.mp3 */,
-				26DCCD18256DAC3800865512 /* fsm-team-escp-infinite.mp3 */,
-				26DCCD22256DAC3A00865512 /* fsm-team-escp-lazy-aftermoon.mp3 */,
-				26DCCD14256DAC3700865512 /* fsm-team-escp-lost-in-sargam.mp3 */,
-				26DCCD26256DAC3A00865512 /* fsm-team-escp-lucid-dreaming.mp3 */,
-				26DCCD1D256DAC3900865512 /* fsm-team-escp-neo-noir.jpg */,
-				26DCCD24256DAC3A00865512 /* fsm-team-escp-neo-noir.mp3 */,
-				26DCCD1E256DAC3900865512 /* fsm-team-escp-parallel-synthesis.mp3 */,
-				26DCCD16256DAC3800865512 /* fsm-team-escp-sail-away.mp3 */,
-				26DCCD20256DAC3900865512 /* fsm-team-escp-through-the-waves.mp3 */,
-				26DCCD1F256DAC3900865512 /* fsm-team-escp-water-skiing.mp3 */,
-				26DCCD10256DAC3700865512 /* fsm-team-escp-work-sleep-repeat.mp3 */,
-				26DCCD28256DAC3B00865512 /* fsm-team-nightwalker.mp3 */,
-				26DCCD0C256DAC3600865512 /* fsm-team-open-space.mp3 */,
-				26DCCD13256DAC3700865512 /* fsm-team-over-the-ocean.mp3 */,
-				26DCCD1C256DAC3900865512 /* fsm-team-single-room-airfield-view.mp3 */,
-				26DCCD27256DAC3A00865512 /* fsm-team-stay-positive.mp3 */,
-				26DCCD17256DAC3800865512 /* fsm-team-sun-and-clouds.mp3 */,
-				26DCCD15256DAC3800865512 /* fsm-team-sunny-morning.mp3 */,
-				26DCCD11256DAC3700865512 /* fsm-team-synthetic.mp3 */,
-				26DCCD2A256DAC3B00865512 /* fsm-team-the-city.mp3 */,
-				26DCCD0F256DAC3700865512 /* fsm-team-time-rider.mp3 */,
-				26DCCD19256DAC3800865512 /* fsm-team-upbeat.mp3 */,
-				26DCCD1B256DAC3900865512 /* fsm-team-uplifting.mp3 */,
+				262CC2AA256ECF3B002B02B7 /* fsm-team-escp-astronaut-in-a-submarine.mp3 */,
+				262CC2A5256ECF39002B02B7 /* fsm-team-escp-dreamwalking.mp3 */,
+				262CC2A4256ECF38002B02B7 /* fsm-team-escp-goodbye-ocean.mp3 */,
+				262CC29E256ECF35002B02B7 /* fsm-team-escp-hello-night.mp3 */,
+				262CC2A8256ECF3A002B02B7 /* fsm-team-escp-infinite.mp3 */,
+				262CC2A9256ECF3B002B02B7 /* fsm-team-escp-lazy-aftermoon.mp3 */,
+				262CC2A2256ECF37002B02B7 /* fsm-team-escp-lost-in-sargam.mp3 */,
+				262CC298256ECF33002B02B7 /* fsm-team-escp-lucid-dreaming.mp3 */,
+				262CC29C256ECF35002B02B7 /* fsm-team-escp-neo-noir.mp3 */,
+				262CC2A1256ECF37002B02B7 /* fsm-team-escp-parallel-synthesis.mp3 */,
+				262CC29B256ECF34002B02B7 /* fsm-team-escp-sail-away.mp3 */,
+				262CC29D256ECF35002B02B7 /* fsm-team-escp-through-the-waves.mp3 */,
+				262CC29F256ECF36002B02B7 /* fsm-team-escp-water-skiing.mp3 */,
+				262CC2AC256ECF3C002B02B7 /* fsm-team-escp-work-sleep-repeat.mp3 */,
+				262CC29A256ECF34002B02B7 /* fsm-team-nightwalker.mp3 */,
+				262CC2A7256ECF3A002B02B7 /* fsm-team-open-space.mp3 */,
+				262CC2A0256ECF36002B02B7 /* fsm-team-over-the-ocean.mp3 */,
+				262CC299256ECF33002B02B7 /* fsm-team-single-room-airfield-view.mp3 */,
+				262CC2A3256ECF38002B02B7 /* fsm-team-stay-positive.mp3 */,
+				262CC296256ECF32002B02B7 /* fsm-team-sun-and-clouds.mp3 */,
+				262CC293256ECF30002B02B7 /* fsm-team-sunny-morning.mp3 */,
+				262CC295256ECF31002B02B7 /* fsm-team-synthetic.mp3 */,
+				262CC2A6256ECF39002B02B7 /* fsm-team-the-city.mp3 */,
+				262CC2AB256ECF3C002B02B7 /* fsm-team-time-rider.mp3 */,
+				262CC294256ECF31002B02B7 /* fsm-team-upbeat.mp3 */,
+				262CC297256ECF32002B02B7 /* fsm-team-uplifting.mp3 */,
 			);
 			path = Music.bundle;
 			sourceTree = "<group>";
@@ -233,39 +218,34 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26DCCD40256DAC3B00865512 /* fsm-team-escp-goodbye-ocean.mp3 in Resources */,
-				26DCCD47256DAC3B00865512 /* fsm-team-nightwalker.mp3 in Resources */,
-				26DCCD2C256DAC3B00865512 /* fsm-team-above-the-clouds.mp3 in Resources */,
-				26DCCD2D256DAC3B00865512 /* fsm-team-escp-dreamwalking.mp3 in Resources */,
-				26DCCD35256DAC3B00865512 /* fsm-team-escp-sail-away.mp3 in Resources */,
-				26DCCD2F256DAC3B00865512 /* fsm-team-escp-work-sleep-repeat.mp3 in Resources */,
-				26DCCD42256DAC3B00865512 /* fsm-team-escp-astronaut-in-a-submarine.mp3 in Resources */,
-				26DCCD32256DAC3B00865512 /* fsm-team-over-the-ocean.mp3 in Resources */,
-				26DCCD43256DAC3B00865512 /* fsm-team-escp-neo-noir.mp3 in Resources */,
-				26DCCD2B256DAC3B00865512 /* fsm-team-open-space.mp3 in Resources */,
-				26DCCD39256DAC3B00865512 /* fsm-team-banger.mp3 in Resources */,
-				26DCCD44256DAC3B00865512 /* fsm-team-back-home.mp3 in Resources */,
-				26DCCD3C256DAC3B00865512 /* fsm-team-escp-neo-noir.jpg in Resources */,
-				26DCCD49256DAC3B00865512 /* fsm-team-the-city.mp3 in Resources */,
 				2698DEB4256C61BA00C5AF76 /* Preview Assets.xcassets in Resources */,
-				26DCCD3B256DAC3B00865512 /* fsm-team-single-room-airfield-view.mp3 in Resources */,
-				26DCCD2E256DAC3B00865512 /* fsm-team-time-rider.mp3 in Resources */,
-				26DCCD34256DAC3B00865512 /* fsm-team-sunny-morning.mp3 in Resources */,
-				26DCCD48256DAC3B00865512 /* fsm-team-escp-ambivert.mp3 in Resources */,
-				26DCCD38256DAC3B00865512 /* fsm-team-upbeat.mp3 in Resources */,
-				26DCCD3F256DAC3B00865512 /* fsm-team-escp-through-the-waves.mp3 in Resources */,
-				26DCCD46256DAC3B00865512 /* fsm-team-stay-positive.mp3 in Resources */,
-				26DCCD30256DAC3B00865512 /* fsm-team-synthetic.mp3 in Resources */,
-				26DCCD33256DAC3B00865512 /* fsm-team-escp-lost-in-sargam.mp3 in Resources */,
-				26DCCD3A256DAC3B00865512 /* fsm-team-uplifting.mp3 in Resources */,
-				26DCCD31256DAC3B00865512 /* fsm-team-escp-hello-night.mp3 in Resources */,
-				26DCCD37256DAC3B00865512 /* fsm-team-escp-infinite.mp3 in Resources */,
-				26DCCD3E256DAC3B00865512 /* fsm-team-escp-water-skiing.mp3 in Resources */,
+				262CC2B0256ECF3D002B02B7 /* fsm-team-sun-and-clouds.mp3 in Resources */,
+				262CC2BD256ECF3D002B02B7 /* fsm-team-stay-positive.mp3 in Resources */,
+				262CC2AE256ECF3D002B02B7 /* fsm-team-upbeat.mp3 in Resources */,
+				262CC2AD256ECF3D002B02B7 /* fsm-team-sunny-morning.mp3 in Resources */,
+				262CC2C4256ECF3D002B02B7 /* fsm-team-escp-astronaut-in-a-submarine.mp3 in Resources */,
+				262CC2B2256ECF3D002B02B7 /* fsm-team-escp-lucid-dreaming.mp3 in Resources */,
+				262CC2B9256ECF3D002B02B7 /* fsm-team-escp-water-skiing.mp3 in Resources */,
+				262CC2BC256ECF3D002B02B7 /* fsm-team-escp-lost-in-sargam.mp3 in Resources */,
+				262CC2B4256ECF3D002B02B7 /* fsm-team-nightwalker.mp3 in Resources */,
+				262CC2B7256ECF3D002B02B7 /* fsm-team-escp-through-the-waves.mp3 in Resources */,
+				262CC2AF256ECF3D002B02B7 /* fsm-team-synthetic.mp3 in Resources */,
+				262CC2B1256ECF3D002B02B7 /* fsm-team-uplifting.mp3 in Resources */,
+				262CC2C5256ECF3D002B02B7 /* fsm-team-time-rider.mp3 in Resources */,
+				262CC2BF256ECF3D002B02B7 /* fsm-team-escp-dreamwalking.mp3 in Resources */,
+				262CC2C0256ECF3D002B02B7 /* fsm-team-the-city.mp3 in Resources */,
+				262CC2BE256ECF3D002B02B7 /* fsm-team-escp-goodbye-ocean.mp3 in Resources */,
 				2698DEB1256C61BA00C5AF76 /* Assets.xcassets in Resources */,
-				26DCCD36256DAC3B00865512 /* fsm-team-sun-and-clouds.mp3 in Resources */,
-				26DCCD3D256DAC3B00865512 /* fsm-team-escp-parallel-synthesis.mp3 in Resources */,
-				26DCCD45256DAC3B00865512 /* fsm-team-escp-lucid-dreaming.mp3 in Resources */,
-				26DCCD41256DAC3B00865512 /* fsm-team-escp-lazy-aftermoon.mp3 in Resources */,
+				262CC2B3256ECF3D002B02B7 /* fsm-team-single-room-airfield-view.mp3 in Resources */,
+				262CC2B8256ECF3D002B02B7 /* fsm-team-escp-hello-night.mp3 in Resources */,
+				262CC2BB256ECF3D002B02B7 /* fsm-team-escp-parallel-synthesis.mp3 in Resources */,
+				262CC2BA256ECF3D002B02B7 /* fsm-team-over-the-ocean.mp3 in Resources */,
+				262CC2B6256ECF3D002B02B7 /* fsm-team-escp-neo-noir.mp3 in Resources */,
+				262CC2C6256ECF3D002B02B7 /* fsm-team-escp-work-sleep-repeat.mp3 in Resources */,
+				262CC2C2256ECF3D002B02B7 /* fsm-team-escp-infinite.mp3 in Resources */,
+				262CC2B5256ECF3D002B02B7 /* fsm-team-escp-sail-away.mp3 in Resources */,
+				262CC2C1256ECF3D002B02B7 /* fsm-team-open-space.mp3 in Resources */,
+				262CC2C3256ECF3D002B02B7 /* fsm-team-escp-lazy-aftermoon.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
