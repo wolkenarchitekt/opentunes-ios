@@ -40,7 +40,7 @@ struct TrackDetailView: View {
             Image(uiImage: self.artwork).resizable().frame(width: 50, height: 50)
             VStack(alignment: .leading) {
                 HStack() {
-                    Text(self.track.artist!)
+                    Text(self.track.artist ?? "")
                         .font(.system(.footnote))
                         .opacity(0.7)
                     let durationStr = formatDuration(duration: self.duration)
@@ -50,7 +50,7 @@ struct TrackDetailView: View {
                         .opacity(0.7)
                 }
                 
-                Text(self.track.title!)
+                Text(self.track.title ?? "")
                 HStack() {
                     Text(self.track.initialKey ?? "")
                         .font(.system(.footnote))
@@ -72,13 +72,15 @@ struct TrackListView: View {
     @EnvironmentObject var model: ViewModel
     
     var body: some View {
-        List {
-            ForEach(self.model.dataSource) { track in
-                TrackDetailView(track: track).listRowInsets(EdgeInsets())
+        VStack() {
+            List {
+                ForEach(self.model.dataSource) { track in
+                    TrackDetailView(track: track).listRowInsets(EdgeInsets())
+                }
             }
-        }
-        .onAppear() {
-            self.model.loadTracks(context: viewContext)
+            .onAppear() {
+                self.model.loadTracks(context: viewContext)
+            }
         }
     }
 }
@@ -110,7 +112,6 @@ extension TrackListView {
             let fetchRequest = Track.fetchRequest() as NSFetchRequest<Track>
             let coreDataTracks = try! context.fetch(fetchRequest) as [Track]
             for track in coreDataTracks {
-                print("Deleting track")
                 context.delete(track)
             }
             try! context.save()
@@ -133,16 +134,38 @@ extension TrackListView {
             return track
         }
         
+        func fetchTrackByUrl(context: NSManagedObjectContext, url: URL) -> Track? {
+            let fetchRequest = Track.fetchRequest() as NSFetchRequest<Track>
+            let predicate = NSPredicate(format: "url == %@", url.relativeString)
+            fetchRequest.predicate = predicate
+            fetchRequest.fetchLimit = 1
+            let track = try! context.fetch(fetchRequest)
+            return track.first
+        }
+        
         func loadTracksFromLibrary(context: NSManagedObjectContext) {
             let mediaItems: [MPMediaItem] = MPMediaQuery.songs().items!
             let start = DispatchTime.now()
             
             for item in mediaItems {
-                let track: Track = Track(context: context)
-                track.url = item.assetURL!.absoluteString
-                track.artist = item.artist
-                track.title = item.title
-                try! context.save()
+                var track: Track
+                if let trackDB = fetchTrackByUrl(context: context, url: item.assetURL!) {
+                    track = trackDB
+                } else {
+                    track = Track(context: context)
+                    track.url = item.assetURL!.absoluteString
+                    track.artist = item.artist
+                    track.title = item.title
+                    let asset = AVAsset(url: item.assetURL!)
+                    if let initialKey = getTagFilterByIdentifier(asset: asset, identifier: AVMetadataIdentifier.id3MetadataInitialKey) {
+                        track.initialKey = initialKey
+                    }
+                    let bpmStr = getTagFilterByIdentifier(asset: asset, identifier: AVMetadataIdentifier.id3MetadataBeatsPerMinute)
+                    if bpmStr != "" {
+                        track.bpm = Double(bpmStr!)!
+                    }
+                    try! context.save()
+                }
             }
             
             let end = DispatchTime.now()
@@ -159,6 +182,7 @@ extension TrackListView {
         
         func loadTracks(context: NSManagedObjectContext) {
             let urls = Bundle.main.urls(forResourcesWithExtension: "mp3", subdirectory: nil)!
+            
             if Platform.isSimulator {
                 deleteAllTracks(context: context)
                 
