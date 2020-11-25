@@ -33,6 +33,8 @@
 		262CC2C4256ECF3D002B02B7 /* fsm-team-escp-astronaut-in-a-submarine.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 262CC2AA256ECF3B002B02B7 /* fsm-team-escp-astronaut-in-a-submarine.mp3 */; };
 		262CC2C5256ECF3D002B02B7 /* fsm-team-time-rider.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 262CC2AB256ECF3C002B02B7 /* fsm-team-time-rider.mp3 */; };
 		262CC2C6256ECF3D002B02B7 /* fsm-team-escp-work-sleep-repeat.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 262CC2AC256ECF3C002B02B7 /* fsm-team-escp-work-sleep-repeat.mp3 */; };
+		262CC2CC256EFD5C002B02B7 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262CC2CB256EFD5C002B02B7 /* Utils.swift */; };
+		262CC2CF256EFE6A002B02B7 /* TrackDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262CC2CE256EFE6A002B02B7 /* TrackDetailView.swift */; };
 		2698DEAD256C61B700C5AF76 /* OpenTunes4App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2698DEAC256C61B700C5AF76 /* OpenTunes4App.swift */; };
 		2698DEAF256C61B700C5AF76 /* TrackListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2698DEAE256C61B700C5AF76 /* TrackListView.swift */; };
 		2698DEB1256C61BA00C5AF76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2698DEB0256C61BA00C5AF76 /* Assets.xcassets */; };
@@ -68,6 +70,8 @@
 		262CC2AA256ECF3B002B02B7 /* fsm-team-escp-astronaut-in-a-submarine.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "fsm-team-escp-astronaut-in-a-submarine.mp3"; path = "../../../../../Music/Stockmusic/short/fsm-team-escp-astronaut-in-a-submarine.mp3"; sourceTree = "<group>"; };
 		262CC2AB256ECF3C002B02B7 /* fsm-team-time-rider.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-time-rider.mp3"; sourceTree = "<group>"; };
 		262CC2AC256ECF3C002B02B7 /* fsm-team-escp-work-sleep-repeat.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-escp-work-sleep-repeat.mp3"; sourceTree = "<group>"; };
+		262CC2CB256EFD5C002B02B7 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		262CC2CE256EFE6A002B02B7 /* TrackDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailView.swift; sourceTree = "<group>"; };
 		2698DEA9256C61B700C5AF76 /* OpenTunes4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenTunes4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2698DEAC256C61B700C5AF76 /* OpenTunes4App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenTunes4App.swift; sourceTree = "<group>"; };
 		2698DEAE256C61B700C5AF76 /* TrackListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackListView.swift; sourceTree = "<group>"; };
@@ -111,11 +115,13 @@
 				26DCCD0A256DA68200865512 /* Music.bundle */,
 				2698DEAC256C61B700C5AF76 /* OpenTunes4App.swift */,
 				2698DEAE256C61B700C5AF76 /* TrackListView.swift */,
+				262CC2CE256EFE6A002B02B7 /* TrackDetailView.swift */,
 				2698DEB0256C61BA00C5AF76 /* Assets.xcassets */,
 				2698DEB5256C61BA00C5AF76 /* Persistence.swift */,
 				2698DEBA256C61BA00C5AF76 /* Info.plist */,
 				2698DEB7256C61BA00C5AF76 /* OpenTunes4.xcdatamodeld */,
 				2698DEB2256C61BA00C5AF76 /* Preview Content */,
+				262CC2CB256EFD5C002B02B7 /* Utils.swift */,
 			);
 			path = OpenTunes4;
 			sourceTree = "<group>";
@@ -256,8 +262,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				262CC2CC256EFD5C002B02B7 /* Utils.swift in Sources */,
 				2698DEB9256C61BA00C5AF76 /* OpenTunes4.xcdatamodeld in Sources */,
 				2698DEB6256C61BA00C5AF76 /* Persistence.swift in Sources */,
+				262CC2CF256EFE6A002B02B7 /* TrackDetailView.swift in Sources */,
 				2698DEAF256C61B700C5AF76 /* TrackListView.swift in Sources */,
 				2698DEAD256C61B700C5AF76 /* OpenTunes4App.swift in Sources */,
 			);
