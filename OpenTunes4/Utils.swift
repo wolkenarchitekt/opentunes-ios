@@ -1,6 +1,7 @@
 import Foundation
 import AVFoundation
 import SwiftUI
+import CoreData
 
 
 func getArtwork(asset: AVAsset) -> UIImage {
@@ -41,4 +42,25 @@ class ObservableViewModel<T>: ObservableObject {
     init(dataSource: [T]) {
         self.dataSource = dataSource
     }
+}
+
+func urlToTrack(context: NSManagedObjectContext, url: URL) -> Track {
+    let track = Track(context: context)
+    track.url = url.absoluteString
+    
+    let asset = AVAsset(url: url)
+    track.artist = getTagFilterByIdentifier(asset: asset, identifier: AVMetadataIdentifier.commonIdentifierArtist)
+    track.title = getTagFilterByIdentifier(asset: asset, identifier: AVMetadataIdentifier.commonIdentifierTitle)
+    track.initialKey = getTagFilterByIdentifier(asset: asset, identifier: AVMetadataIdentifier.id3MetadataInitialKey)
+
+    if let initialKey = getTagFilterByIdentifier(asset: asset, identifier: AVMetadataIdentifier.id3MetadataInitialKey) {
+        track.initialKey = initialKey
+    }
+    
+    let bpmStr = getTagFilterByIdentifier(asset: asset, identifier: AVMetadataIdentifier.id3MetadataBeatsPerMinute)
+    if bpmStr != "" {
+        track.bpm = Double(bpmStr!)!
+    }
+    
+    return track
 }

@@ -41,23 +41,6 @@ extension TrackListView {
             try! context.save()
         }
         
-        func loadTrackFromFile(url: URL, context: NSManagedObjectContext) -> Track {
-            let track = Track(context: context)
-            let asset = AVAsset(url: url)
-            let artist = getTagFilterByIdentifier(asset: asset, identifier: AVMetadataIdentifier.commonIdentifierArtist)
-            let title = getTagFilterByIdentifier(asset: asset, identifier: AVMetadataIdentifier.commonIdentifierTitle)
-            let initialKey = getTagFilterByIdentifier(asset: asset, identifier: AVMetadataIdentifier.id3MetadataInitialKey)
-            let bpm = getTagFilterByIdentifier(asset: asset, identifier: AVMetadataIdentifier.id3MetadataBeatsPerMinute)
-            track.artist = artist
-            track.title = title
-            track.url = url.absoluteString
-            track.initialKey = initialKey
-            if bpm != "" {
-                track.bpm = Double(bpm!)!
-            }
-            return track
-        }
-        
         func fetchTrackByUrl(context: NSManagedObjectContext, url: URL) -> Track? {
             let fetchRequest = Track.fetchRequest() as NSFetchRequest<Track>
             let predicate = NSPredicate(format: "url == %@", url.relativeString)
@@ -72,22 +55,9 @@ extension TrackListView {
             let start = DispatchTime.now()
             
             for item in mediaItems {
-                var track: Track
-                if let trackDB = fetchTrackByUrl(context: context, url: item.assetURL!) {
-                    track = trackDB
-                } else {
-                    track = Track(context: context)
-                    track.url = item.assetURL!.absoluteString
-                    track.artist = item.artist
-                    track.title = item.title
-                    let asset = AVAsset(url: item.assetURL!)
-                    if let initialKey = getTagFilterByIdentifier(asset: asset, identifier: AVMetadataIdentifier.id3MetadataInitialKey) {
-                        track.initialKey = initialKey
-                    }
-                    let bpmStr = getTagFilterByIdentifier(asset: asset, identifier: AVMetadataIdentifier.id3MetadataBeatsPerMinute)
-                    if bpmStr != "" {
-                        track.bpm = Double(bpmStr!)!
-                    }
+                let trackDB = fetchTrackByUrl(context: context, url: item.assetURL!)
+                if trackDB == nil {
+                    let _ = urlToTrack(context: context, url: item.assetURL!)
                     try! context.save()
                 }
             }
@@ -105,13 +75,13 @@ extension TrackListView {
         }
         
         func loadTracks(context: NSManagedObjectContext) {
-            let urls = Bundle.main.urls(forResourcesWithExtension: "mp3", subdirectory: nil)!
-            
             if Platform.isSimulator {
                 deleteAllTracks(context: context)
-                
+
+                let urls = Bundle.main.urls(forResourcesWithExtension: "mp3", subdirectory: nil)!
+
                 for url in urls {
-                    let _ = loadTrackFromFile(url: url, context: context)
+                    let _ = urlToTrack(context: context, url: url)
                     try! context.save()
                 }
                 self.loadTracksFromDB(context: context)
