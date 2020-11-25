@@ -2,6 +2,15 @@ import SwiftUI
 import CoreData
 import AVFoundation
 
+struct TrackDetailView: View {
+    var track: Track
+    
+    var body: some View {
+        Text("Artist: \(track.artist!)")
+        Text("Title: \(track.title!)")
+    }
+}
+
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
@@ -10,8 +19,7 @@ struct ContentView: View {
     var body: some View {
         List {
             ForEach(self.model.dataSource) { track in
-                Text("Artist: \(track.artist!)")
-                Text("Title: \(track.title!)")
+                TrackDetailView(track: track).listRowInsets(EdgeInsets())
             }
         }
         .onAppear() {
@@ -38,7 +46,7 @@ extension ContentView {
         }
         
         func deleteAllTracks(context: NSManagedObjectContext) {
-            var fetchRequest = Track.fetchRequest() as NSFetchRequest<Track>
+            let fetchRequest = Track.fetchRequest() as NSFetchRequest<Track>
             let coreDataTracks = try! context.fetch(fetchRequest) as [Track]
             for track in coreDataTracks {
                 print("Deleting track")
