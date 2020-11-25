@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  OpenTunes4
-//
-//  Created by Ingo Fischer on 23.11.20.
-//
-
 import SwiftUI
 import CoreData
 import AVFoundation
