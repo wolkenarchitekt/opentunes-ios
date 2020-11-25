@@ -34,7 +34,7 @@
 		262CC2C5256ECF3D002B02B7 /* fsm-team-time-rider.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 262CC2AB256ECF3C002B02B7 /* fsm-team-time-rider.mp3 */; };
 		262CC2C6256ECF3D002B02B7 /* fsm-team-escp-work-sleep-repeat.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 262CC2AC256ECF3C002B02B7 /* fsm-team-escp-work-sleep-repeat.mp3 */; };
 		2698DEAD256C61B700C5AF76 /* OpenTunes4App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2698DEAC256C61B700C5AF76 /* OpenTunes4App.swift */; };
-		2698DEAF256C61B700C5AF76 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2698DEAE256C61B700C5AF76 /* ContentView.swift */; };
+		2698DEAF256C61B700C5AF76 /* TrackListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2698DEAE256C61B700C5AF76 /* TrackListView.swift */; };
 		2698DEB1256C61BA00C5AF76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2698DEB0256C61BA00C5AF76 /* Assets.xcassets */; };
 		2698DEB4256C61BA00C5AF76 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2698DEB3256C61BA00C5AF76 /* Preview Assets.xcassets */; };
 		2698DEB6256C61BA00C5AF76 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2698DEB5256C61BA00C5AF76 /* Persistence.swift */; };
@@ -70,7 +70,7 @@
 		262CC2AC256ECF3C002B02B7 /* fsm-team-escp-work-sleep-repeat.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fsm-team-escp-work-sleep-repeat.mp3"; sourceTree = "<group>"; };
 		2698DEA9256C61B700C5AF76 /* OpenTunes4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenTunes4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2698DEAC256C61B700C5AF76 /* OpenTunes4App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenTunes4App.swift; sourceTree = "<group>"; };
-		2698DEAE256C61B700C5AF76 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2698DEAE256C61B700C5AF76 /* TrackListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackListView.swift; sourceTree = "<group>"; };
 		2698DEB0256C61BA00C5AF76 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2698DEB3256C61BA00C5AF76 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2698DEB5256C61BA00C5AF76 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -110,7 +110,7 @@
 			children = (
 				26DCCD0A256DA68200865512 /* Music.bundle */,
 				2698DEAC256C61B700C5AF76 /* OpenTunes4App.swift */,
-				2698DEAE256C61B700C5AF76 /* ContentView.swift */,
+				2698DEAE256C61B700C5AF76 /* TrackListView.swift */,
 				2698DEB0256C61BA00C5AF76 /* Assets.xcassets */,
 				2698DEB5256C61BA00C5AF76 /* Persistence.swift */,
 				2698DEBA256C61BA00C5AF76 /* Info.plist */,
@@ -258,7 +258,7 @@
 			files = (
 				2698DEB9256C61BA00C5AF76 /* OpenTunes4.xcdatamodeld in Sources */,
 				2698DEB6256C61BA00C5AF76 /* Persistence.swift in Sources */,
-				2698DEAF256C61B700C5AF76 /* ContentView.swift in Sources */,
+				2698DEAF256C61B700C5AF76 /* TrackListView.swift in Sources */,
 				2698DEAD256C61B700C5AF76 /* OpenTunes4App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

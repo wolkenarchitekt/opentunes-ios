@@ -11,11 +11,11 @@ import SwiftUI
 struct OpenTunes4App: App {
     let persistenceController = PersistenceController.shared
     
-    @StateObject var trackListVM = ContentView.ViewModel()
+    @StateObject var trackListVM = TrackListView.ViewModel()
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TrackListView()
                 .environmentObject(trackListVM)
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
