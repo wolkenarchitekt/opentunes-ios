@@ -17,16 +17,20 @@ struct TrackListView: View {
             List {
                 ForEach(self.model.dataSource) { track in
                     Button(action: {
+//                        self.model.currentTrack = track
                         self.model.play(track: track)
                     }) {
-                        TrackDetailView(track: track).listRowInsets(EdgeInsets())
+                        TrackDetailView(track: track)
                     }
                 }
-            }
-            .onAppear() {
+            }.onAppear() {
                 print("Loading tracks")
                 self.model.loadTracks(context: viewContext)
+                
                 print("Finished loading tracks")
+            }
+            if self.model.currentTrack != nil {
+                PlayerView(track: self.model.currentTrack!)
             }
         }
     }
@@ -47,13 +51,14 @@ extension TrackListView {
                 try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
                 try AVAudioSession.sharedInstance().setActive(true)
             } catch {
-                print("Error")
+                print(error.localizedDescription)
             }
             self.player.pause()
             let item = AVPlayerItem(url: URL(string: track.url!)!)
             self.player.replaceCurrentItem(with: item)
             self.player.play()
             self.currentTrack = track
+            self.objectWillChange.send()
         }
         
         private func deleteAllTracks(context: NSManagedObjectContext) {
@@ -95,8 +100,7 @@ extension TrackListView {
         
         private func loadTracksFromDB(context: NSManagedObjectContext) {
             let fetchRequest = Track.fetchRequest() as NSFetchRequest<Track>
-            let coreDataTracks = try! context.fetch(fetchRequest) as [Track]
-            self.dataSource = coreDataTracks
+            self.dataSource = try! context.fetch(fetchRequest) as [Track]
         }
         
         func loadTracks(context: NSManagedObjectContext) {
@@ -111,12 +115,14 @@ extension TrackListView {
                     try! context.save()
                 }
                 self.loadTracksFromDB(context: context)
+                self.currentTrack = dataSource[0]
             } else {
                 MPMediaLibrary.requestAuthorization { status in
                     if status == .authorized {
                         DispatchQueue.main.async {
                             self.loadTracksFromLibrary(context: context)
                             self.loadTracksFromDB(context: context)
+                            self.currentTrack = self.dataSource[0]
                         }
                     }
                 }
