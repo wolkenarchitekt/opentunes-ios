@@ -76,8 +76,9 @@ extension TrackListView {
         }
         
         func loadTracks(context: NSManagedObjectContext) {
-            
             if Platform.isSimulator {
+                deleteAllTracks(context: context)
+                
                 let urls = Bundle.main.urls(forResourcesWithExtension: "mp3", subdirectory: nil)!
 
                 for url in urls {
