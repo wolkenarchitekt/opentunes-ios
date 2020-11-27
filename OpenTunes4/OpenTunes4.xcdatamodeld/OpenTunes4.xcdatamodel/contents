@@ -3,11 +3,12 @@
     <entity name="Track" representedClassName="Track" syncable="YES" codeGenerationType="class">
         <attribute name="artist" optional="YES" attributeType="String" defaultValueString=""/>
         <attribute name="bpm" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="dateAdded" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="initialKey" optional="YES" attributeType="String" defaultValueString=""/>
         <attribute name="title" optional="YES" attributeType="String" defaultValueString=""/>
         <attribute name="url" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Track" positionX="-63" positionY="-18" width="128" height="118"/>
+        <element name="Track" positionX="-63" positionY="-18" width="128" height="133"/>
     </elements>
 </model>

@@ -42,6 +42,9 @@ struct TrackDetailView: View {
                             .font(.system(.footnote))
                             .opacity(0.7)
                     }
+                    Text(formatDate(date: self.track.dateAdded!))
+                        .font(.system(.footnote))
+                        .opacity(0.7)
                 }
             }
         }.padding()

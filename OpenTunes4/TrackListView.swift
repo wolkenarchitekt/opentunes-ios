@@ -57,7 +57,8 @@ extension TrackListView {
             for item in mediaItems {
                 let trackDB = fetchTrackByUrl(context: context, url: item.assetURL!)
                 if trackDB == nil {
-                    let _ = urlToTrack(context: context, url: item.assetURL!)
+                    let track = urlToTrack(context: context, url: item.assetURL!)
+                    track.dateAdded = item.dateAdded
                     try! context.save()
                 }
             }
@@ -75,13 +76,16 @@ extension TrackListView {
         }
         
         func loadTracks(context: NSManagedObjectContext) {
+            deleteAllTracks(context: context)
+            
             if Platform.isSimulator {
-                deleteAllTracks(context: context)
-
                 let urls = Bundle.main.urls(forResourcesWithExtension: "mp3", subdirectory: nil)!
 
                 for url in urls {
-                    let _ = urlToTrack(context: context, url: url)
+                    let track = urlToTrack(context: context, url: url)
+                    let attr = try! FileManager.default.attributesOfItem(atPath: url.path)
+                    let dateAdded = attr[FileAttributeKey.creationDate] as? Date
+                    track.dateAdded = dateAdded
                     try! context.save()
                 }
                 self.loadTracksFromDB(context: context)

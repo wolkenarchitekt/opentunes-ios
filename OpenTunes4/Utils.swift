@@ -52,7 +52,7 @@ func urlToTrack(context: NSManagedObjectContext, url: URL) -> Track {
     track.artist = getTagFilterByIdentifier(asset: asset, identifier: AVMetadataIdentifier.commonIdentifierArtist)
     track.title = getTagFilterByIdentifier(asset: asset, identifier: AVMetadataIdentifier.commonIdentifierTitle)
     track.initialKey = getTagFilterByIdentifier(asset: asset, identifier: AVMetadataIdentifier.id3MetadataInitialKey)
-
+    
     if let initialKey = getTagFilterByIdentifier(asset: asset, identifier: AVMetadataIdentifier.id3MetadataInitialKey) {
         track.initialKey = initialKey
     }
@@ -63,4 +63,10 @@ func urlToTrack(context: NSManagedObjectContext, url: URL) -> Track {
     }
     
     return track
+}
+
+func formatDate(date: Date) -> String {
+    let customFormatter = DateFormatter()
+    customFormatter.dateFormat = "dd/MM/YY"
+    return customFormatter.string(for: date)!
 }
