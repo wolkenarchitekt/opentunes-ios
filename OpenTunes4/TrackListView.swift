@@ -18,7 +18,9 @@ struct TrackListView: View {
                 }
             }
             .onAppear() {
+                print("Loading tracks")
                 self.model.loadTracks(context: viewContext)
+                print("Finished loading tracks")
             }
         }
     }
@@ -26,13 +28,11 @@ struct TrackListView: View {
 
 extension TrackListView {
     class ViewModel: ObservableViewModel<Track> {
-        private var context: NSManagedObjectContext?
-        
         init() {
             super.init(dataSource: [Track]())
         }
         
-        func deleteAllTracks(context: NSManagedObjectContext) {
+        private func deleteAllTracks(context: NSManagedObjectContext) {
             let fetchRequest = Track.fetchRequest() as NSFetchRequest<Track>
             let coreDataTracks = try! context.fetch(fetchRequest) as [Track]
             for track in coreDataTracks {
@@ -41,7 +41,7 @@ extension TrackListView {
             try! context.save()
         }
         
-        func fetchTrackByUrl(context: NSManagedObjectContext, url: URL) -> Track? {
+        private func fetchTrackByUrl(context: NSManagedObjectContext, url: URL) -> Track? {
             let fetchRequest = Track.fetchRequest() as NSFetchRequest<Track>
             let predicate = NSPredicate(format: "url == %@", url.relativeString)
             fetchRequest.predicate = predicate
@@ -50,7 +50,7 @@ extension TrackListView {
             return track.first
         }
         
-        func loadTracksFromLibrary(context: NSManagedObjectContext) {
+        private func loadTracksFromLibrary(context: NSManagedObjectContext) {
             let mediaItems: [MPMediaItem] = MPMediaQuery.songs().items!
             let start = DispatchTime.now()
             
@@ -69,7 +69,7 @@ extension TrackListView {
             print("Reading tracks took \(timeInterval) seconds")
         }
         
-        func loadTracksFromDB(context: NSManagedObjectContext) {
+        private func loadTracksFromDB(context: NSManagedObjectContext) {
             let fetchRequest = Track.fetchRequest() as NSFetchRequest<Track>
             let coreDataTracks = try! context.fetch(fetchRequest) as [Track]
             self.dataSource = coreDataTracks
@@ -102,7 +102,7 @@ extension TrackListView {
 }
 
 #if DEBUG
-struct ContentView_Previews: PreviewProvider {
+struct TrackListView_Previews: PreviewProvider {
     static var previews: some View {
         TrackListView()
             .environmentObject(TrackListView.ViewModel())
