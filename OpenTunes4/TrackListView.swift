@@ -12,15 +12,17 @@ struct TrackListView: View {
     
     @EnvironmentObject var model: ViewModel
     
+    let color = Color(red: 0.6078, green: 0.3961, blue: 0)
+    
     var body: some View {
         VStack() {
             List {
                 ForEach(self.model.dataSource) { track in
                     Button(action: {
-//                        self.model.currentTrack = track
                         self.model.play(track: track)
                     }) {
                         TrackDetailView(track: track)
+                            .background(track.url == self.model.currentTrack?.url ? color : nil)
                     }
                 }
             }.onAppear() {
