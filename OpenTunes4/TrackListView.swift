@@ -5,6 +5,8 @@ import Combine
 import MediaPlayer
 
 
+
+
 struct TrackListView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
@@ -14,7 +16,11 @@ struct TrackListView: View {
         VStack() {
             List {
                 ForEach(self.model.dataSource) { track in
-                    TrackDetailView(track: track).listRowInsets(EdgeInsets())
+                    Button(action: {
+                        self.model.play(track: track)
+                    }) {
+                        TrackDetailView(track: track).listRowInsets(EdgeInsets())
+                    }
                 }
             }
             .onAppear() {
@@ -28,8 +34,26 @@ struct TrackListView: View {
 
 extension TrackListView {
     class ViewModel: ObservableViewModel<Track> {
+        @Published var currentTrack: Track?
+        @Published var player: AVPlayer
+        
         init() {
+            player = AVPlayer()
             super.init(dataSource: [Track]())
+        }
+        
+        func play(track: Track) {
+            do {
+                try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
+                try AVAudioSession.sharedInstance().setActive(true)
+            } catch {
+                print("Error")
+            }
+            self.player.pause()
+            let item = AVPlayerItem(url: URL(string: track.url!)!)
+            self.player.replaceCurrentItem(with: item)
+            self.player.play()
+            self.currentTrack = track
         }
         
         private func deleteAllTracks(context: NSManagedObjectContext) {
