@@ -67,6 +67,12 @@ func urlToTrack(context: NSManagedObjectContext, url: URL) -> Track {
 
 func formatDate(date: Date) -> String {
     let customFormatter = DateFormatter()
-    customFormatter.dateFormat = "dd/MM/YY"
+    customFormatter.dateFormat = "YY/MM/dd"
     return customFormatter.string(for: date)!
+}
+
+func fileDateAdded(url: URL) -> Date {
+    let attr = try! FileManager.default.attributesOfItem(atPath: url.path)
+    let dateAdded = attr[FileAttributeKey.creationDate] as? Date
+    return dateAdded!
 }

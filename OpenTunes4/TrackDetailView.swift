@@ -42,11 +42,24 @@ struct TrackDetailView: View {
                             .font(.system(.footnote))
                             .opacity(0.7)
                     }
-                    Text(formatDate(date: self.track.dateAdded!))
-                        .font(.system(.footnote))
-                        .opacity(0.7)
+                    if self.track.dateAdded != nil {
+                        Text(formatDate(date: self.track.dateAdded!))
+                            .font(.system(.footnote))
+                            .opacity(0.7)
+                    }
                 }
             }
         }.padding()
     }
 }
+
+#if DEBUG
+struct TrackDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        let url = Bundle.main.urls(forResourcesWithExtension: "mp3", subdirectory: nil)![0]
+        let viewContext = PersistenceController.preview.container.viewContext
+        let track = urlToTrack(context: viewContext, url: url)
+        TrackDetailView(track: track)
+    }
+}
+#endif

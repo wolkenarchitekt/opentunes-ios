@@ -76,16 +76,13 @@ extension TrackListView {
         }
         
         func loadTracks(context: NSManagedObjectContext) {
-            deleteAllTracks(context: context)
             
             if Platform.isSimulator {
                 let urls = Bundle.main.urls(forResourcesWithExtension: "mp3", subdirectory: nil)!
 
                 for url in urls {
                     let track = urlToTrack(context: context, url: url)
-                    let attr = try! FileManager.default.attributesOfItem(atPath: url.path)
-                    let dateAdded = attr[FileAttributeKey.creationDate] as? Date
-                    track.dateAdded = dateAdded
+                    track.dateAdded = fileDateAdded(url: url)
                     try! context.save()
                 }
                 self.loadTracksFromDB(context: context)
@@ -103,6 +100,7 @@ extension TrackListView {
     }
 }
 
+#if DEBUG
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         TrackListView()
@@ -110,3 +108,4 @@ struct ContentView_Previews: PreviewProvider {
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
+#endif
