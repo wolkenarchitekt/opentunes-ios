@@ -12,22 +12,18 @@ struct TrackListView: View {
     
     @EnvironmentObject var model: ViewModel
     
-    let color = Color(red: 0.6078, green: 0.3961, blue: 0)
-    
     var body: some View {
         VStack() {
             List {
                 ForEach(self.model.dataSource) { track in
-                    Button(action: {
-                        self.model.play(track: track)
-                    }) {
-                        TrackDetailView(track: track)
-                            .background(track.url == self.model.currentTrack?.url ? color : nil)
-                    }
+                    TrackDetailView(track: track)
+                        .listRowInsets(EdgeInsets())
                 }
-            }.onAppear() {
+            }
+            .onAppear() {
                 self.model.loadTracks(context: viewContext)
             }
+            
             if self.model.currentTrack != nil {
                 PlayerView(track: self.model.currentTrack!)
             }
@@ -118,8 +114,7 @@ extension TrackListView {
                 let urls = Bundle.main.urls(forResourcesWithExtension: "mp3", subdirectory: nil)!
 
                 for url in urls {
-                    let track = urlToTrack(context: context, url: url)
-                    track.dateAdded = fileDateAdded(url: url)
+                    let _ = urlToTrack(context: context, url: url)
                     try! context.save()
                 }
                 self.loadTracksFromDB(context: context)

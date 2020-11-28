@@ -33,9 +33,15 @@ struct PlayerView: View {
                     self.model.isPlaying ? self.model.stop() : self.model.play(track: self.track)
                 }) {
                     Image(systemName: self.model.isPlaying ? "stop.fill" : "play.fill").frame(width: 64)
-                }
+                }.buttonStyle(PlainButtonStyle())
             }
         }
+        .padding(10)
+        .background(Color(red: 0.1, green: 0.1, blue: 0.1))
+        .frame(
+            minWidth: nil, idealWidth: nil, maxWidth: .infinity,
+            minHeight: 70, idealHeight: 70, maxHeight: 70,
+            alignment: .leading)
     }
     
 }

@@ -47,6 +47,7 @@ class ObservableViewModel<T>: ObservableObject {
 func urlToTrack(context: NSManagedObjectContext, url: URL) -> Track {
     let track = Track(context: context)
     track.url = url.absoluteString
+    track.dateAdded = fileDateAdded(url: url)
     
     let asset = AVAsset(url: url)
     track.artist = getTagFilterByIdentifier(asset: asset, identifier: AVMetadataIdentifier.commonIdentifierArtist)
