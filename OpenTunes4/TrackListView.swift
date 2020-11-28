@@ -26,10 +26,7 @@ struct TrackListView: View {
                     }
                 }
             }.onAppear() {
-                print("Loading tracks")
                 self.model.loadTracks(context: viewContext)
-                
-                print("Finished loading tracks")
             }
             if self.model.currentTrack != nil {
                 PlayerView(track: self.model.currentTrack!)
@@ -42,9 +39,11 @@ extension TrackListView {
     class ViewModel: ObservableViewModel<Track> {
         @Published var currentTrack: Track?
         @Published var player: AVPlayer
+        @Published var isPlaying: Bool
         
-        init() {
+        init(isPlaying: Bool = false) {
             player = AVPlayer()
+            self.isPlaying = isPlaying
             super.init(dataSource: [Track]())
         }
         
@@ -60,6 +59,13 @@ extension TrackListView {
             self.player.replaceCurrentItem(with: item)
             self.player.play()
             self.currentTrack = track
+            self.isPlaying = true
+            self.objectWillChange.send()
+        }
+        
+        func stop() {
+            self.player.pause()
+            self.isPlaying = false
             self.objectWillChange.send()
         }
         

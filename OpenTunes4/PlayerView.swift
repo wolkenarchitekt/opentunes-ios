@@ -9,6 +9,8 @@ struct PlayerView: View {
     private var duration: TimeInterval
     private var artwork: UIImage
     
+    @EnvironmentObject var model: TrackListView.ViewModel
+    
     init(track: Track) {
         self.track = track
         let url = URL(string: track.url!)!
@@ -27,6 +29,11 @@ struct PlayerView: View {
                         .opacity(0.7).frame(maxWidth: .infinity)
                     Text(self.track.title ?? "").frame(maxWidth: .infinity)
                 }
+                Button(action: {
+                    self.model.isPlaying ? self.model.stop() : self.model.play(track: self.track)
+                }) {
+                    Image(systemName: self.model.isPlaying ? "stop.fill" : "play.fill").frame(width: 64)
+                }
             }
         }
     }
@@ -39,7 +46,8 @@ struct PlayerView_Previews: PreviewProvider {
         let urls = Bundle.main.urls(forResourcesWithExtension: "mp3", subdirectory: nil)!
         let viewContext = PersistenceController.preview.container.viewContext
         let track = urlToTrack(context: viewContext, url: urls[0])
-        PlayerView(track: track)
+        PlayerView(track: track).environmentObject(TrackListView.ViewModel(isPlaying: false))
+        PlayerView(track: track).environmentObject(TrackListView.ViewModel(isPlaying: true))
     }
 }
 #endif
