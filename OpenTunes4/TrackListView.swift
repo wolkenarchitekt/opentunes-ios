@@ -38,17 +38,15 @@ extension TrackListView {
         @Published var currentTrack: Track?
         @Published var player: AVPlayer
         @Published var isPlaying: Bool
-        @Published var isPaused: Bool
         
         init(isPlaying: Bool = false) {
             player = AVPlayer()
             self.isPlaying = isPlaying
-            self.isPaused = false
             super.init(dataSource: [Track]())
         }
         
         func play(track: Track?) {
-            if isPaused {
+            if track == nil {
                 self.player.play()
             } else {
                 do {
@@ -70,7 +68,6 @@ extension TrackListView {
         func pause() {
             self.player.pause()
             self.isPlaying = false
-            self.isPaused = true
             self.objectWillChange.send()
         }
         
