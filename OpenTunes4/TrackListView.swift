@@ -14,6 +14,8 @@ struct TrackListView: View {
     
     var body: some View {
         VStack() {
+            SearchView().padding(5)
+            
             List {
                 ForEach(self.model.dataSource) { track in
                     TrackDetailView(track: track)
@@ -114,7 +116,8 @@ extension TrackListView {
                 let urls = Bundle.main.urls(forResourcesWithExtension: "mp3", subdirectory: nil)!
 
                 for url in urls {
-                    let _ = urlToTrack(context: context, url: url)
+                    let track = urlToTrack(context: context, url: url)
+                    track.dateAdded = fileDateAdded(url: url)
                     try! context.save()
                 }
                 self.loadTracksFromDB(context: context)

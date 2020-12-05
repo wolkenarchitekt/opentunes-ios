@@ -21,6 +21,14 @@ func formatDuration(duration:TimeInterval) -> String {
     return formatter.string(from: Date(timeIntervalSinceReferenceDate: duration))
 }
 
+func getGeobTag(asset: AVAsset) {
+    let items = AVMetadataItem.metadataItems(from: asset.metadata, filteredByIdentifier: AVMetadataIdentifier.id3MetadataGeneralEncapsulatedObject)
+    
+    for value in items {
+        print(value.stringValue)
+    }
+}
+
 func getTagFilterByIdentifier(asset: AVAsset, identifier: AVMetadataIdentifier) -> String? {
     let items = AVMetadataItem.metadataItems(from: asset.metadata, filteredByIdentifier: identifier)
     
@@ -47,12 +55,12 @@ class ObservableViewModel<T>: ObservableObject {
 func urlToTrack(context: NSManagedObjectContext, url: URL) -> Track {
     let track = Track(context: context)
     track.url = url.absoluteString
-    track.dateAdded = fileDateAdded(url: url)
     
     let asset = AVAsset(url: url)
     track.artist = getTagFilterByIdentifier(asset: asset, identifier: AVMetadataIdentifier.commonIdentifierArtist)
     track.title = getTagFilterByIdentifier(asset: asset, identifier: AVMetadataIdentifier.commonIdentifierTitle)
     track.initialKey = getTagFilterByIdentifier(asset: asset, identifier: AVMetadataIdentifier.id3MetadataInitialKey)
+    getGeobTag(asset: asset)
     
     if let initialKey = getTagFilterByIdentifier(asset: asset, identifier: AVMetadataIdentifier.id3MetadataInitialKey) {
         track.initialKey = initialKey
