@@ -83,7 +83,33 @@ struct SearchView: View {
                 }
             }.padding().background(Color(red: 0.2, green: 0.2, blue: 0.2))
             
-            Image(systemName: "arrow.up.arrow.down").padding(10)
+            Menu {
+                Button(action: {
+                }) {
+                    Text("Artist")
+                }
+                Button(action: {
+                }) {
+                    Text("Title")
+                }
+                Button(action: {
+                }) {
+                    Text("BPM")
+                }
+                Button(action: {
+                }) {
+                    Text("Key")
+                }
+                Button(action: {
+                }) {
+                    Text("Recently Added")
+                }
+            }
+            label: {
+                Image(systemName: "arrow.up.arrow.down")
+                    .foregroundColor(.white)
+                    .padding(10)
+            }
         }
         .padding(10)
     }
