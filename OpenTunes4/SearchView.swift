@@ -44,72 +44,76 @@ struct SearchView: View {
             HStack() {
                 Image(systemName: "magnifyingglass")
                 TextField("Search", text: $searchAll)
-                if self.keyboardObserver.keyboardIsVisible {
+                
+                Menu {
                     Button(action: {
-                        searchAll = ""
-                        self.hideKeyboard()
-                    }, label: {
-                        Text("Cancel")
-                    })
-                }
-                else {
-                    Menu {
-                        Button(action: {
-                        }) {
-                            Text("Artist")
-                        }
-                        Button(action: {
-                        }) {
-                            Text("Title")
-                        }
-                        Button(action: {
-                        }) {
-                            Text("BPM")
-                        }
-                        Button(action: {
-                        }) {
-                            Text("Key")
-                        }
-                        Button(action: {
-                        }) {
-                            Text("Recently Added")
-                        }
+                    }) {
+                        Text("Artist")
                     }
-                    label: {
+                    Button(action: {
+                    }) {
+                        Text("Title")
+                    }
+                    Button(action: {
+                    }) {
+                        Text("BPM")
+                    }
+                    Button(action: {
+                    }) {
+                        Text("Key")
+                    }
+                    Button(action: {
+                    }) {
+                        Text("Recently Added")
+                    }
+                }
+                label: {
+                    if !self.keyboardObserver.keyboardIsVisible {
                         Image(systemName: "line.horizontal.3.decrease")
                             .foregroundColor(.white)
                     }
-                    
                 }
+                    
+                
             }.padding().background(Color(red: 0.2, green: 0.2, blue: 0.2))
             
-            Menu {
+            if self.keyboardObserver.keyboardIsVisible {
                 Button(action: {
-                }) {
-                    Text("Artist")
+                    searchAll = ""
+                    self.hideKeyboard()
+                }, label: {
+                    Text("Cancel")
+                })
+            } else {
+                Menu {
+                    Button(action: {
+                    }) {
+                        Text("Artist")
+                    }
+                    Button(action: {
+                    }) {
+                        Text("Title")
+                    }
+                    Button(action: {
+                    }) {
+                        Text("BPM")
+                    }
+                    Button(action: {
+                    }) {
+                        Text("Key")
+                    }
+                    Button(action: {
+                    }) {
+                        Text("Recently Added")
+                    }
                 }
-                Button(action: {
-                }) {
-                    Text("Title")
-                }
-                Button(action: {
-                }) {
-                    Text("BPM")
-                }
-                Button(action: {
-                }) {
-                    Text("Key")
-                }
-                Button(action: {
-                }) {
-                    Text("Recently Added")
+                label: {
+                    Image(systemName: "arrow.up.arrow.down")
+                        .foregroundColor(.white)
+                        .padding(10)
                 }
             }
-            label: {
-                Image(systemName: "arrow.up.arrow.down")
-                    .foregroundColor(.white)
-                    .padding(10)
-            }
+            
         }
         .padding(10)
     }
