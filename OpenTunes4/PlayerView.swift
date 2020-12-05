@@ -30,9 +30,9 @@ struct PlayerView: View {
                     Text(self.track.title ?? "").frame(maxWidth: .infinity)
                 }
                 Button(action: {
-                    self.model.isPlaying ? self.model.stop() : self.model.play(track: self.track)
+                    self.model.isPlaying ? self.model.pause() : self.model.play(track: self.track)
                 }) {
-                    Image(systemName: self.model.isPlaying ? "stop.fill" : "play.fill")
+                    Image(systemName: self.model.isPlaying ? "pause.fill" : "play.fill")
                         .frame(width: 50, height: 50)
                         .background(Color(red: 0.15, green: 0.15, blue: 0.15))
                         .cornerRadius(10.0)

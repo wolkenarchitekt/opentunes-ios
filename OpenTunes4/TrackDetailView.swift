@@ -23,6 +23,7 @@ struct TrackDetailView: View {
     var body: some View {
         HStack() {
             Button(action: {
+                self.model.isPaused = false
                 self.model.play(track: track)
             }) {
                 HStack() {

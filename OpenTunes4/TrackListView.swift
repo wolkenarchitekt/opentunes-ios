@@ -14,7 +14,7 @@ struct TrackListView: View {
     
     var body: some View {
         VStack() {
-            SearchView().padding(5)
+            SearchView()
             
             List {
                 ForEach(self.model.dataSource) { track in
@@ -38,26 +38,39 @@ extension TrackListView {
         @Published var currentTrack: Track?
         @Published var player: AVPlayer
         @Published var isPlaying: Bool
+        @Published var isPaused: Bool
         
         init(isPlaying: Bool = false) {
             player = AVPlayer()
             self.isPlaying = isPlaying
+            self.isPaused = false
             super.init(dataSource: [Track]())
         }
         
-        func play(track: Track) {
-            do {
-                try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
-                try AVAudioSession.sharedInstance().setActive(true)
-            } catch {
-                print(error.localizedDescription)
+        func play(track: Track?) {
+            if isPaused {
+                self.player.play()
+            } else {
+                do {
+                    try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
+                    try AVAudioSession.sharedInstance().setActive(true)
+                } catch {
+                    print(error.localizedDescription)
+                }
+                self.player.pause()
+                let item = AVPlayerItem(url: URL(string: track!.url!)!)
+                self.player.replaceCurrentItem(with: item)
+                self.player.play()
             }
-            self.player.pause()
-            let item = AVPlayerItem(url: URL(string: track.url!)!)
-            self.player.replaceCurrentItem(with: item)
-            self.player.play()
             self.currentTrack = track
             self.isPlaying = true
+            self.objectWillChange.send()
+        }
+        
+        func pause() {
+            self.player.pause()
+            self.isPlaying = false
+            self.isPaused = true
             self.objectWillChange.send()
         }
         

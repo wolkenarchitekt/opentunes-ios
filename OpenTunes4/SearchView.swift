@@ -41,47 +41,50 @@ struct SearchView: View {
     
     var body: some View {
         HStack() {
-            Image(systemName: "magnifyingglass")
-            TextField("Search", text: $searchAll)
+            HStack() {
+                Image(systemName: "magnifyingglass")
+                TextField("Search", text: $searchAll)
+                if self.keyboardObserver.keyboardIsVisible {
+                    Button(action: {
+                        searchAll = ""
+                        self.hideKeyboard()
+                    }, label: {
+                        Text("Cancel")
+                    })
+                }
+                else {
+                    Menu {
+                        Button(action: {
+                        }) {
+                            Text("Artist")
+                        }
+                        Button(action: {
+                        }) {
+                            Text("Title")
+                        }
+                        Button(action: {
+                        }) {
+                            Text("BPM")
+                        }
+                        Button(action: {
+                        }) {
+                            Text("Key")
+                        }
+                        Button(action: {
+                        }) {
+                            Text("Recently Added")
+                        }
+                    }
+                    label: {
+                        Image(systemName: "line.horizontal.3.decrease")
+                            .foregroundColor(.white)
+                    }
+                    
+                }
+            }.padding().background(Color(red: 0.2, green: 0.2, blue: 0.2))
             
-            if self.keyboardObserver.keyboardIsVisible {
-                Button(action: {
-                    searchAll = ""
-                    self.hideKeyboard()
-                }, label: {
-                    Text("Cancel")
-                })
-            }
-            else {
-                Menu {
-                    Button(action: {
-                    }) {
-                        Text("Artist")
-                    }
-                    Button(action: {
-                    }) {
-                        Text("Title")
-                    }
-                    Button(action: {
-                    }) {
-                        Text("BPM")
-                    }
-                    Button(action: {
-                    }) {
-                        Text("Key")
-                    }
-                    Button(action: {
-                    }) {
-                        Text("Recently Added")
-                    }
-                }
-                label: {
-                    Image(systemName: "line.horizontal.3.decrease").foregroundColor(.white)
-//                    Text("Sorting").foregroundColor(.white)
-                }
-            }
+            Image(systemName: "arrow.up.arrow.down").padding(10)
         }
         .padding(10)
-        .background(Color(red: 0.2, green: 0.2, blue: 0.2))
     }
 }
