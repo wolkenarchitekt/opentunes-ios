@@ -80,6 +80,8 @@ struct SearchView: View {
                 MenuButton(systemName: "line.horizontal.3")
             }
             
+            AirPlayView().frame(width: 50, height: 50)
+            
             if self.keyboardObserver.keyboardIsVisible {
                 Button(action: {
                     searchAll = ""

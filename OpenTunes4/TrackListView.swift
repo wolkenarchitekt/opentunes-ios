@@ -3,6 +3,7 @@ import CoreData
 import AVFoundation
 import Combine
 import MediaPlayer
+import AVKit
 
 struct MenuButton: View {
     var systemName: String
@@ -56,6 +57,23 @@ struct TrackListView: View {
     }
 }
 
+struct AirPlayView: UIViewRepresentable {
+
+    func makeUIView(context: Context) -> UIView {
+
+        let routePickerView = AVRoutePickerView()
+        routePickerView.backgroundColor = UIColor.clear
+        routePickerView.activeTintColor = UIColor.red
+        routePickerView.tintColor = UIColor.white
+
+        return routePickerView
+    }
+
+    func updateUIView(_ uiView: UIView, context: Context) {
+    }
+}
+
+
 extension TrackListView {
     class ViewModel: ObservableViewModel<Track> {
         @Published var currentTrack: Track?
@@ -73,8 +91,15 @@ extension TrackListView {
                 self.player.play()
             } else {
                 do {
-                    try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
+                    try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: .default, policy: .longFormAudio)
                     try AVAudioSession.sharedInstance().setActive(true)
+                    
+//                    do {
+//                        try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, policy: .longForm)
+//                    } catch {
+//                        print("Failed to set audio session route sharing policy: \(error)")
+//                    }
+                    
                 } catch {
                     print(error.localizedDescription)
                 }
