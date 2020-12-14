@@ -118,3 +118,9 @@ struct SearchView: View {
         .padding(10)
     }
 }
+
+struct SearchView_Previews: PreviewProvider {
+    static var previews: some View {
+        SearchView()
+    }
+}
