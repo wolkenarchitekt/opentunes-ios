@@ -5,8 +5,6 @@ import Combine
 import MediaPlayer
 
 
-
-
 struct TrackListView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
@@ -103,7 +101,9 @@ extension TrackListView {
                 let trackDB = fetchTrackByUrl(context: context, url: item.assetURL!)
                 if trackDB == nil {
                     let track = urlToTrack(context: context, url: item.assetURL!)
-                    track.dateAdded = item.dateAdded
+                    if track.dateAdded == nil {
+                        track.dateAdded = item.dateAdded
+                    }
                     try! context.save()
                 }
             }
@@ -116,6 +116,7 @@ extension TrackListView {
         
         private func loadTracksFromDB(context: NSManagedObjectContext) {
             let fetchRequest = Track.fetchRequest() as NSFetchRequest<Track>
+            fetchRequest.sortDescriptors = [NSSortDescriptor(key:"dateAdded", ascending:false)]
             self.dataSource = try! context.fetch(fetchRequest) as [Track]
         }
         

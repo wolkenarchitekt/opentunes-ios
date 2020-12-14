@@ -4,6 +4,45 @@ import SwiftUI
 import CoreData
 
 
+let IMPORT_DATE_KEY = "opentunes.import_date"
+
+private func mapGEOB(_ attrs: [AVMetadataExtraAttributeKey : Any]) -> (key: String?, value: String?) {
+    for (k, v) in attrs {
+        let key = k.rawValue
+        let aValue = String(describing: v)
+        
+//        print("Key: \(key), Value: \(aValue)")
+        
+        if aValue == "opentunes.import_date" {
+            return ("key", aValue)
+        }
+    }
+    return ("", "")
+}
+
+func getGeobByKey(asset: AVAsset) -> Date? {
+    let items = AVMetadataItem.metadataItems(from: asset.metadata, filteredByIdentifier: AVMetadataIdentifier.id3MetadataGeneralEncapsulatedObject)
+    
+    for item in items {
+        guard let extraAttributes = item.extraAttributes else {
+            return nil
+        }
+        let info : AVMetadataExtraAttributeKey = AVMetadataExtraAttributeKey(rawValue: "info")
+        let decodedStr = String(data: item.value as! Data, encoding: .utf8)!
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let date = dateFormatter.date(from: decodedStr)
+        
+        guard let extraInfo = extraAttributes[info] else {
+            return nil
+        }
+        if extraInfo as! String == "opentunes.import_date" {
+            return date
+        }
+    }
+    return nil
+}
+
 func getArtwork(asset: AVAsset) -> UIImage {
     let items = AVMetadataItem.metadataItems(from: asset.metadata, filteredByIdentifier: AVMetadataIdentifier.commonIdentifierArtwork)
     let data = items.first?.dataValue
@@ -24,8 +63,13 @@ func formatDuration(duration:TimeInterval) -> String {
 func getGeobTag(asset: AVAsset) {
     let items = AVMetadataItem.metadataItems(from: asset.metadata, filteredByIdentifier: AVMetadataIdentifier.id3MetadataGeneralEncapsulatedObject)
     
-    for value in items {
-        print(value.stringValue)
+    for item in items {
+        let decodedString = String(data: item.value as! Data, encoding: .utf8)!
+//        let dateFormatter = DateFormatter()
+        print(decodedString)
+//        dateFormatter.dateFormat = "yyyy-MM-dd"
+//        let date = dateFormatter.date(from: decodedString)!
+//        print(date)
     }
 }
 
@@ -60,7 +104,7 @@ func urlToTrack(context: NSManagedObjectContext, url: URL) -> Track {
     track.artist = getTagFilterByIdentifier(asset: asset, identifier: AVMetadataIdentifier.commonIdentifierArtist)
     track.title = getTagFilterByIdentifier(asset: asset, identifier: AVMetadataIdentifier.commonIdentifierTitle)
     track.initialKey = getTagFilterByIdentifier(asset: asset, identifier: AVMetadataIdentifier.id3MetadataInitialKey)
-    getGeobTag(asset: asset)
+    track.dateAdded = getGeobByKey(asset: asset)
     
     if let initialKey = getTagFilterByIdentifier(asset: asset, identifier: AVMetadataIdentifier.id3MetadataInitialKey) {
         track.initialKey = initialKey
