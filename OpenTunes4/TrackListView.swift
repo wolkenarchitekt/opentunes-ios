@@ -4,6 +4,19 @@ import AVFoundation
 import Combine
 import MediaPlayer
 
+struct MenuButton: View {
+    var systemName: String
+    
+    var body: some View {
+        return Image(systemName: systemName)
+            .foregroundColor(.white)
+            .padding(10)
+            .frame(width: 50, height: 50)
+            .background(Color(red: 0.15, green: 0.15, blue: 0.15))
+            .cornerRadius(10.0)
+
+    }
+}
 
 struct TrackListView: View {
     @Environment(\.managedObjectContext) private var viewContext
@@ -12,7 +25,19 @@ struct TrackListView: View {
     
     var body: some View {
         VStack() {
-            SearchView()
+            SearchView().padding(0)
+            
+//            HStack() {
+//                Spacer()
+//                MenuButton(systemName: "folder")
+//                Spacer()
+//                MenuButton(systemName: "arrow.up.arrow.down")
+//                Spacer()
+//                MenuButton(systemName: "line.horizontal.3.decrease")
+//                Spacer()
+//                MenuButton(systemName: "line.horizontal.3")
+//                Spacer()
+//            }
             
             List {
                 ForEach(self.model.dataSource) { track in

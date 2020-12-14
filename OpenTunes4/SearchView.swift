@@ -44,7 +44,6 @@ struct SearchView: View {
             HStack() {
                 Image(systemName: "magnifyingglass")
                 TextField("Search", text: $searchAll)
-                
                 Menu {
                     Button(action: {
                     }) {
@@ -69,13 +68,17 @@ struct SearchView: View {
                 }
                 label: {
                     if !self.keyboardObserver.keyboardIsVisible {
-                        Image(systemName: "line.horizontal.3.decrease")
-                            .foregroundColor(.white)
+//                        Image(systemName: "line.horizontal.3.decrease")
+//                            .foregroundColor(.white)
                     }
                 }
                     
                 
             }.padding().background(Color(red: 0.2, green: 0.2, blue: 0.2))
+            
+            if !self.keyboardObserver.keyboardIsVisible {
+                MenuButton(systemName: "line.horizontal.3")
+            }
             
             if self.keyboardObserver.keyboardIsVisible {
                 Button(action: {
@@ -85,37 +88,38 @@ struct SearchView: View {
                     Text("Cancel")
                 })
             } else {
-                Menu {
-                    Button(action: {
-                    }) {
-                        Text("Artist")
-                    }
-                    Button(action: {
-                    }) {
-                        Text("Title")
-                    }
-                    Button(action: {
-                    }) {
-                        Text("BPM")
-                    }
-                    Button(action: {
-                    }) {
-                        Text("Key")
-                    }
-                    Button(action: {
-                    }) {
-                        Text("Recently Added")
-                    }
-                }
-                label: {
-                    Image(systemName: "arrow.up.arrow.down")
-                        .foregroundColor(.white)
-                        .padding(10)
-                }
+//                Menu {
+//                    Button(action: {
+//                    }) {
+//                        Text("Artist")
+//                    }
+//                    Button(action: {
+//                    }) {
+//                        Text("Title")
+//                    }
+//                    Button(action: {
+//                    }) {
+//                        Text("BPM")
+//                    }
+//                    Button(action: {
+//                    }) {
+//                        Text("Key")
+//                    }
+//                    Button(action: {
+//                    }) {
+//                        Text("Recently Added")
+//                    }
+//                }
+//                label: {
+//                    Image(systemName: "arrow.up.arrow.down")
+//                        .foregroundColor(.white)
+//                        .padding(10)
+//                }
             }
             
         }
-        .padding(10)
+        .padding(.top, 10)
+        .padding(.horizontal, 10)
     }
 }
 
