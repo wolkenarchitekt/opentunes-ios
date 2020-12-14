@@ -120,8 +120,11 @@ struct SearchView: View {
             }
             
         }
-        .padding(.top, 10)
-        .padding(.horizontal, 10)
+        .padding(5)
+//        .padding(.top, 10)
+//        .padding(.horizontal, 10)
+        
+        
     }
 }
 

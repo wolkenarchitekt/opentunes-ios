@@ -26,7 +26,9 @@ struct TrackListView: View {
     
     var body: some View {
         VStack() {
-            SearchView().padding(0)
+            SearchView().background(Color(red: 0.1, green: 0.1, blue: 0.1))
+            
+            
             
 //            HStack() {
 //                Spacer()
@@ -39,6 +41,7 @@ struct TrackListView: View {
 //                MenuButton(systemName: "line.horizontal.3")
 //                Spacer()
 //            }
+            
             
             List {
                 ForEach(self.model.dataSource) { track in
