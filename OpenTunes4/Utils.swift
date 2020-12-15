@@ -7,11 +7,8 @@ import CoreData
 let IMPORT_DATE_KEY = "opentunes.import_date"
 
 private func mapGEOB(_ attrs: [AVMetadataExtraAttributeKey : Any]) -> (key: String?, value: String?) {
-    for (k, v) in attrs {
-        let key = k.rawValue
+    for (_, v) in attrs {
         let aValue = String(describing: v)
-        
-//        print("Key: \(key), Value: \(aValue)")
         
         if aValue == "opentunes.import_date" {
             return ("key", aValue)
@@ -58,19 +55,6 @@ func formatDuration(duration:TimeInterval) -> String {
     formatter.timeZone = TimeZone(secondsFromGMT: 0)
     formatter.dateFormat = "mm:ss"
     return formatter.string(from: Date(timeIntervalSinceReferenceDate: duration))
-}
-
-func getGeobTag(asset: AVAsset) {
-    let items = AVMetadataItem.metadataItems(from: asset.metadata, filteredByIdentifier: AVMetadataIdentifier.id3MetadataGeneralEncapsulatedObject)
-    
-    for item in items {
-        let decodedString = String(data: item.value as! Data, encoding: .utf8)!
-//        let dateFormatter = DateFormatter()
-        print(decodedString)
-//        dateFormatter.dateFormat = "yyyy-MM-dd"
-//        let date = dateFormatter.date(from: decodedString)!
-//        print(date)
-    }
 }
 
 func getTagFilterByIdentifier(asset: AVAsset, identifier: AVMetadataIdentifier) -> String? {

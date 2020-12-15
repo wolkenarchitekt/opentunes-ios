@@ -68,8 +68,6 @@ struct SearchView: View {
                 }
                 label: {
                     if !self.keyboardObserver.keyboardIsVisible {
-//                        Image(systemName: "line.horizontal.3.decrease")
-//                            .foregroundColor(.white)
                     }
                 }
                     
@@ -90,41 +88,11 @@ struct SearchView: View {
                     Text("Cancel")
                 })
             } else {
-//                Menu {
-//                    Button(action: {
-//                    }) {
-//                        Text("Artist")
-//                    }
-//                    Button(action: {
-//                    }) {
-//                        Text("Title")
-//                    }
-//                    Button(action: {
-//                    }) {
-//                        Text("BPM")
-//                    }
-//                    Button(action: {
-//                    }) {
-//                        Text("Key")
-//                    }
-//                    Button(action: {
-//                    }) {
-//                        Text("Recently Added")
-//                    }
-//                }
-//                label: {
-//                    Image(systemName: "arrow.up.arrow.down")
-//                        .foregroundColor(.white)
-//                        .padding(10)
-//                }
+
             }
             
         }
         .padding(5)
-//        .padding(.top, 10)
-//        .padding(.horizontal, 10)
-        
-        
     }
 }
 

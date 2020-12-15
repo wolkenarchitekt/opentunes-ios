@@ -28,21 +28,6 @@ struct TrackListView: View {
         VStack() {
             SearchView().background(Color(red: 0.1, green: 0.1, blue: 0.1))
             
-            
-            
-//            HStack() {
-//                Spacer()
-//                MenuButton(systemName: "folder")
-//                Spacer()
-//                MenuButton(systemName: "arrow.up.arrow.down")
-//                Spacer()
-//                MenuButton(systemName: "line.horizontal.3.decrease")
-//                Spacer()
-//                MenuButton(systemName: "line.horizontal.3")
-//                Spacer()
-//            }
-            
-            
             List {
                 ForEach(self.model.dataSource) { track in
                     TrackDetailView(track: track)
@@ -96,13 +81,6 @@ extension TrackListView {
                 do {
                     try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: .default, policy: .longFormAudio)
                     try AVAudioSession.sharedInstance().setActive(true)
-                    
-//                    do {
-//                        try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, policy: .longForm)
-//                    } catch {
-//                        print("Failed to set audio session route sharing policy: \(error)")
-//                    }
-                    
                 } catch {
                     print(error.localizedDescription)
                 }
